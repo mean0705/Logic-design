@@ -1,0 +1,90 @@
+module vending_machine(clk, rst, coin, drink_choose);
+
+input clk, rst;
+input [7:0] coin;
+input [3:0] drink_choose;
+reg  [7:0] total;
+reg  [2:0] FSM;
+reg  [2:0] S0 = 3'b001, S1 = 3'b010, S2 = 3'b011, S3 = 3'b100;
+
+always @(posedge clk or posedge rst) 
+begin
+    if(rst)begin
+        FSM <= S0;
+		total <= 0;
+	end
+    else begin
+        case(FSM)
+            S0:
+			begin @(coin or drink_choose)
+			    if (drink_choose <= 0) 
+					FSM <= S3;
+				else if (drink_choose > 0 && drink_choose < 5)
+				    FSM <= S2;
+				else begin
+					total = total + coin;
+					if(total >= 10) FSM <= S1;
+					else FSM <= S0;
+				end
+			end
+		
+			S1:
+			begin
+                if  (total >= 25)
+				    $display( "tea | coke | coffee | milk");
+				else if (total >= 20)
+				    $display( "tea | coke | coffee");
+				else if (total >= 15)
+				    $display( "tea | coke");
+				else if (total >= 10)
+				    $display( "tea");
+				else;
+				
+				FSM <= S0;
+			end
+			
+			S2:
+			begin
+			    if (drink_choose <= 1) begin
+				    $display( "tea out");
+					total = total - 10;
+				end
+				else if (drink_choose <= 2) begin
+				    $display( "coke out");
+					total = total - 15;
+				end
+				else if (drink_choose <= 3) begin
+				    $display( "coffee out");
+					total = total - 20;
+				end
+				else if (drink_choose <= 4) begin
+				    $display( "milk out");
+					total = total - 25;
+				end
+				else;
+				
+				FSM <= S0;
+			end
+			
+			S3:
+			begin
+			    $display( "back you %b", total );
+				FSM <= S0;
+			end
+
+			default: 
+			begin
+			
+			end
+		
+        endcase
+        end
+end
+
+
+endmodule
+
+
+
+
+

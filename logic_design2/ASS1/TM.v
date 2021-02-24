@@ -1,0 +1,115 @@
+//==========================================
+// The Test bench for 8-bit ALU (error check & grading)
+//==========================================
+`timescale 1ns/1ns
+
+module TM;
+
+parameter	WIDTH = 8;
+
+
+wire	[WIDTH-1:0] a, b;
+wire	[2:0]	  	sel;
+wire	[WIDTH-1:0] out;
+
+
+Top		DUT(.a(a), .b(b), .sel(sel), .out(out));
+
+
+
+
+
+reg		clk, rst;
+reg		mem_flag;
+
+//*********************************
+//      input pattern
+//*********************************
+parameter   DATA_COUNT = 256*256*8;
+
+reg     [WIDTH*2+2:0]  in_mem    [0:DATA_COUNT-1];
+reg     [WIDTH-1:0]  out_mem     [0:DATA_COUNT-1];
+reg     [20:0]              addr_count, cmp, err_cnt;
+reg		[WIDTH*2+2:0]  d;
+
+initial begin
+    $readmemb("C:/Users/Meaning/Desktop/ASS1/M8_in.txt", in_mem);
+    $readmemb("C:/Users/Meaning/Desktop/ASS1/M8_out.txt", out_mem);
+	//$readmemb("C:/Users/Meaning/Desktop/ASS1/in_sub.txt", in_mem);
+    //$readmemb("C:/Users/Meaning/Desktop/ASS1/out_sub.txt", out_mem);
+end
+
+
+always @(posedge clk) begin
+    if(~rst)
+        addr_count <= 0;
+    else
+    if(mem_flag)
+        addr_count <= addr_count + 1;
+end
+
+always @(posedge clk or negedge rst) begin
+    if(!rst) 
+        d <= 0;    
+    else
+        d <= #1 in_mem[addr_count];
+end
+
+assign sel = d[18:16];
+assign	a = d[15:8];
+assign	b = d[7:0];
+//*********************************
+//      control signal
+//*********************************
+
+parameter   t   = 10;
+parameter   th  = t*0.5;
+reg         capture;
+
+
+always #th clk = ~clk;
+
+initial begin
+    clk = 1;
+    rst = 1;
+    capture = 0;
+    cmp = 0;
+    err_cnt = 0;
+    mem_flag = 0;
+    #th rst = 0;
+    #(t*2)      rst = 1;
+    #(t*10)     mem_flag = 1;
+    #t          capture = 1;
+    #(t*DATA_COUNT) mem_flag = 0;
+                    capture = 0;
+
+    #t
+            $display("There are %d errors occured!! \n", err_cnt);
+			$display("The grade is %d. \n", (DATA_COUNT-err_cnt)*100/DATA_COUNT);
+   
+           #t  $stop;
+end
+
+//*********************************
+//      data check
+//*********************************
+
+wire [7:0] num;
+
+assign num = out_mem[cmp];
+
+always @(posedge clk) begin
+    if(capture) begin
+        if(out!==num) begin
+            err_cnt = err_cnt + 1'b1;
+ //           $display("Error occured in %d", cmp+1);
+        end
+        cmp = cmp + 1'b1;
+    end
+end
+
+endmodule
+
+
+
+

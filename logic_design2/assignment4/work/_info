@@ -1,0 +1,168 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\USER\Desktop\1062723\assignment4
+vALU
+I=L`NV7XOVLzfog3WK9Yl`3
+VmeOFPadV18VBDF>C>eO6d3
+Z1 dC:\Users\USER\Desktop\assignment4
+w1592468902
+8C:/Users/USER/Desktop/assignment4/ALU.v
+FC:/Users/USER/Desktop/assignment4/ALU.v
+L0 1
+Z2 OV;L;6.4a;39
+r1
+31
+Z3 o-work work -O0
+n@a@l@u
+!s100 X0DakZ:bEQlKo8:DBc9Iz0
+!s85 0
+vCommand_Register
+I7Zm^@]A5V2X^Jz`2N@64W0
+V0gWaFD8:n^RBoF;10KZJ21
+w1591266829
+8C:/Users/USER/Desktop/1062723/assignment4/Command_Register.v
+FC:/Users/USER/Desktop/1062723/assignment4/Command_Register.v
+L0 1
+R2
+r1
+31
+R3
+n@command_@register
+!s100 >AiJj]Z<3oJfGQXoLjc@40
+!s85 0
+vCommand_Register_ALU
+Ie3KczDGO4ZUGPCPRlI9TZ3
+VNk`S86LLYKe<``aAA35]f0
+R1
+w1592465998
+8C:/Users/USER/Desktop/assignment4/Command_Register_ALU.v
+FC:/Users/USER/Desktop/assignment4/Command_Register_ALU.v
+L0 1
+R2
+r1
+31
+R3
+n@command_@register_@a@l@u
+!s100 =?_CL3iSPe2=bIRVjHniC2
+!s85 0
+vCommand_Register_MAC
+IXjeAE>D1HJ=:X9fZ[i9UZ1
+VZMCi^UFdFZ^geHA>TBP4K2
+R1
+w1591873431
+8C:/Users/USER/Desktop/assignment4/Command_Register_MAC.v
+FC:/Users/USER/Desktop/assignment4/Command_Register_MAC.v
+L0 1
+R2
+r1
+31
+R3
+n@command_@register_@m@a@c
+!s100 Sm7_@WUj6;59aGEmBL?o:0
+!s85 0
+vMAC
+IcMOMV4j;Wdo72EhmCFe5Z0
+VNM4K3<9n5NH_H97SiC8LQ2
+R1
+w1592476260
+8C:/Users/USER/Desktop/assignment4/MAC.v
+FC:/Users/USER/Desktop/assignment4/MAC.v
+L0 1
+R2
+r1
+31
+R3
+n@m@a@c
+!s100 EB5WOa@d5VoI_mV:ddPcH3
+!s85 0
+vResult_Register
+Ic4ZFkMYH7el3k;3E?dAF^0
+Vcm5nXiY4PC`cN:]TW=V862
+w1591265181
+8C:/Users/USER/Desktop/1062723/assignment4/Result_Register.v
+FC:/Users/USER/Desktop/1062723/assignment4/Result_Register.v
+L0 1
+R2
+r1
+31
+R3
+n@result_@register
+!s100 ?QnWG=eX<1Ue`<X^V;e441
+!s85 0
+vResult_Register_ALU
+I0B>60E2NTG5oN6B6oT<XL0
+VfijXiI5e_51H]NPZ:e7gz3
+R1
+w1591872798
+8C:/Users/USER/Desktop/assignment4/Result_Register_ALU.v
+FC:/Users/USER/Desktop/assignment4/Result_Register_ALU.v
+L0 1
+R2
+r1
+31
+R3
+n@result_@register_@a@l@u
+!s100 YTEFa::TnDLCPP;2CPO1^1
+!s85 0
+vResult_Register_MAC
+I[SgPbVD^KOEG^bQG@P7lF1
+V:VfaCKRCBjlhWI9TmlFz[1
+R1
+w1592476748
+8C:/Users/USER/Desktop/assignment4/Result_Register_MAC.v
+FC:/Users/USER/Desktop/assignment4/Result_Register_MAC.v
+L0 1
+R2
+r1
+31
+R3
+n@result_@register_@m@a@c
+!s100 ZFiMC<^No5a_SVN:mB]mj1
+!s85 0
+vShiftRegister
+Imla=`doAP4::nDhHdRID90
+VE<];M1OloVC8R=6BNfUCK1
+R1
+w1591261418
+8C:/Users/USER/Desktop/assignment4/ShiftRegister.v
+FC:/Users/USER/Desktop/assignment4/ShiftRegister.v
+L0 1
+R2
+r1
+31
+R3
+n@shift@register
+!s100 UXILoKUEY;ig6Y]nZ<]jZ2
+!s85 0
+vSPIandOPControl
+Io4GBjWJVnB79_7znTR5z22
+VT>BX<698mWcYFKH81a4=D1
+R1
+w1591266330
+8C:/Users/USER/Desktop/assignment4/SPIandOPControl.v
+FC:/Users/USER/Desktop/assignment4/SPIandOPControl.v
+L0 1
+R2
+r1
+31
+R3
+n@s@p@iand@o@p@control
+!s100 @Clk94JeDKD?O`?Cj5Wno1
+!s85 0
+vTotal
+!s100 W66PdE>_eLh^MH5PcfhcM1
+IFB__oHaE0?F_Uj98b6G_<2
+VX^mI<KNe6jGKhWU9n]nnG2
+R1
+w1592476702
+8C:/Users/USER/Desktop/assignment4/Total.v
+FC:/Users/USER/Desktop/assignment4/Total.v
+L0 1
+R2
+r1
+!s85 0
+31
+R3
+n@total
